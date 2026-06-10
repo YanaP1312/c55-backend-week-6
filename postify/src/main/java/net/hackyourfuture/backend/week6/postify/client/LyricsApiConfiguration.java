@@ -10,6 +10,11 @@ import org.springframework.web.client.RestClient;
 public class LyricsApiConfiguration {
 
     @Bean
+    public RestClient.Builder restClientBuilder() {
+        return RestClient.builder();
+    }
+
+    @Bean
     public RestClient lyricsRestClient(RestClient.Builder builder){
         return builder.baseUrl("https://api.lyrics.ovh")
                 .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
